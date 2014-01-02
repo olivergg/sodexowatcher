@@ -25,10 +25,12 @@ import scala.scalajs.js.Undefined
  */
 object SodexoWatcher {
 
+  // Reference colors for the dynamic linear gradient. (uses color-js Javascript library under the hood)
   val color0 = Color("#bfd255").saturateByRatio(0.1)
   val color50 = Color("#8eb92a").lightenByRatio(0.3)
   val color51 = Color("#72aa00").saturateByRatio(0.1)
   val color100 = Color("#9ecb2d").saturateByRatio(0.1)
+
   /**
    * Helper method to access $.mobile object
    */
@@ -43,6 +45,7 @@ object SodexoWatcher {
    * Variable that stores the currentUrl selected in the select list.
    */
   var currentUrl = "https://sodexo-riemarcopolo.moneweb.fr/"
+
   /**
    * A method to retrieve a SodexoResult and change the percent bar accordingly.
    *
@@ -91,20 +94,19 @@ object SodexoWatcher {
    * Change the percent bar status.
    */
   def changeProgressBar(res: SodexoResult): Unit = {
-    val huerotate = "hue-rotate(" + (res.percent / 100.0) * 270 + "deg)"
-    jQ("#percentBar")
-      .attr("style", getBackgroundGradientAdjusted(res.percent))
-    val texte = new StringBuilder().append(
+    jQ("#percentBar").attr("style", getBackgroundGradientAdjusted(res.percent))
+    jQ("#percentage").text(
       res.placesDispo match {
         case x if x > 1  => s"$x places disponibles (${res.percent} %)"
         case x if x == 1 => s"1 place disponible (${res.percent} %)"
         case _           => s"Aucune place disponible (${res.percent} %)"
       }
     )
-    jQ("#percentage").text(texte.toString)
-
   }
 
+  /**
+   * Display a simple popup window with the given message.
+   */
   def showPopupMessage(message: String): js.Dynamic = {
     jQ("#popupMessage").text(message)
     g.jQuery("#popupBasic").popup("open", JsObj(transition = "flip"))
@@ -146,15 +148,6 @@ object SodexoWatcher {
         }
     }
 
-    jQ("#actualize, #percentBarContainer").bind("tap", {
-      e: JQueryEventObject =>
-        {
-          showLoading()
-          actualize()
-        }
-    }
-    )
-
     //    jQ(dom.document).on("pagecontainerload", "#mainPage", {
     //      (e: JQueryEventObject) =>
     //        {
@@ -188,12 +181,23 @@ object SodexoWatcher {
     actualMain()
   }
 
+  /**
+   * Shift the given color to the red.
+   * 0 percent => no shift
+   * 100 percent => red (ie hue = 0)
+   */
   def adjustToRed(color: js.Dynamic, percent: Int): js.Dynamic = {
-    val currentHue = color.getHue()
-    val targetHue = (1 - Math.pow(percent / 100.0, 3)) * currentHue
+    // a non linear progression is used. inspired by a gamma correction.
+    val targetHue = (1 - Math.pow(percent / 100.0, 3)) * color.getHue()
     color.setHue(targetHue)
   }
 
+  /**
+   * Create the style attribute for the percent bar.
+   * The width is in percent.
+   * A linear-gradient CSS3 string (compatible with recent browser and with Android mobile browser.
+   * The gradient is made of 4 references color that are redshifted according to the given percentage.
+   */
   def getBackgroundGradientAdjusted(percent: Int): String = {
 
     val color0AdjustedStr = adjustToRed(color0, percent).toString

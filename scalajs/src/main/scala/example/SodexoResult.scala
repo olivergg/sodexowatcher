@@ -1,5 +1,7 @@
 package example
-
+/**
+ * A class that represents the occupancy data of a restaurant.
+ */
 class SodexoResult(val percentage: Int, val places: Int) {
   val percent = percentage match {
     case p if p <= 0   => 0

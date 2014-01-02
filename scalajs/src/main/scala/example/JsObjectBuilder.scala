@@ -3,7 +3,7 @@ package example
 import scala.language.dynamics
 import scala.scalajs.js
 import scala.scalajs.js.Any.fromString
-
+///Credit goes to Benjamin Jackman
 object JsObjectBuilder extends scala.Dynamic {
   def applyDynamicNamed[A](name: String)(args: (String, js.Any)*): A = {
     //println(s"applyDynamicNamed($name)(args: $args")
