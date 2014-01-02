@@ -1,0 +1,29 @@
+<div id="mainPage" data-role="page" data-theme="b">
+	<div data-role="header">
+		<h1>Sodexo2 Watcher</h1>
+	</div>
+	<div data-role="content" class="ui-content">
+		<h3>Fréquentation du restaurant.</h3>
+		<p>En regardant le taux réel de mon restaurant, je sais quel est
+			le moment propice pour aller déjeuner.</p>
+		<p>Occupation actuelle du site :</p>
+		<div id="percentBarContainer" class="percentBarContainer">
+			<div id="percentage" class="progressBarText">0%</div>
+			<div id="percentBar" class="percentBar ui-overlay-shadow"></div>
+		</div>
+		<button id="actualize" class="ui-btn ui-corner-all">Actualiser</button>
+		<div class="ui-field-contain">
+			<label for="select-custom-1">Choisir un restaurant:</label> <select
+				name="select-custom-1" id="select-custom-1" data-native-menu="false">
+				<option value="https://sodexo-riemarcopolo.moneweb.fr/">Marco
+					Polo</option>
+				<option value="random1">Random1</option>
+				<option value="random2">Random2</option>
+				<option value="random3">Random3</option>
+			</select>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h3>Olivier Application</h3>
+	</div>
+</div>

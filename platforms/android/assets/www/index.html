@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/jquery.mobile-1.4.0.min.css" />
+<script type="text/javascript" src="js/color.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script>
+	// Update configuration
+	$(document).on("mobileinit", function() {
+		$.support.cors = true;
+		$.mobile.allowCrossDomainPages = true;
+		$.mobile.defaultPageTransition = 'none';
+		$.mobile.defaultDialogTransition = 'none';
+		$.mobile.buttonMarkup.hoverDelay = 0;
+	});
+</script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+<title>Sodexo Watcher</title>
+</head>
+<body>
+	<div id="mainPage" data-role="page" data-theme="b">
+		<div data-role="header">
+			<h1>Sodexo Watcher</h1>
+		</div>
+		<div data-role="content" class="ui-content">
+			<h3>Fréquentation du restaurant.</h3>
+			<p>En regardant le taux réel de mon restaurant, je sais quel est
+				le moment propice pour aller déjeuner.</p>
+			<p>Occupation actuelle du site :</p>
+			<div id="percentBarContainer" class="percentBarContainer">
+				<div class="percentBarTextContainer">
+					<div id="percentage" class="percentBarText">En attente...</div>
+				</div>
+				<div id="percentBar" class="percentBar ui-overlay-shadow"></div>
+			</div>
+			<button id="actualize" class="ui-btn ui-corner-all">Actualiser</button>
+			<div class="ui-field-contain">
+				<label for="select-custom-1">Choisir un restaurant:</label> <select
+					name="select-custom-1" id="select-custom-1"
+					data-native-menu="false">
+					<option value="https://sodexo-riemarcopolo.moneweb.fr/">Marco
+						Polo</option>
+					<option value="random1">Random1</option>
+					<option value="random2">Random2</option>
+					<option value="random3">Random3</option>
+				</select>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h3>Olivier Application</h3>
+			<div id="devicereadyMonitor" class="deviceReady">Device not
+				ready</div>
+		</div>
+		<div data-role="popup" data-theme="a" id="popupBasic"
+			data-overlay-theme="b" class="ui-content">
+			<p id="popupMessage"></p>
+		</div>
+	</div>
+	<script type="text/javascript" src="cordova.js"></script>
+	<!--<script type="text/javascript" src="js/index.js"></script>-->
+	<script type="text/javascript" src="js/example-opt.js"></script>
+	<!-- 	<script type="text/javascript" src="js/example-extdeps.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/example-intdeps.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/example.js"></script> -->
+</body>
+</html>
