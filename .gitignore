@@ -1,3 +1,5 @@
 scalajs/target
+scalajs/project/target
 www/js/example-extdeps.js
-
+*.class
+*.cache
