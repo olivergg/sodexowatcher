@@ -189,25 +189,25 @@ ScalaJS.c.example_SodexoResult.prototype.$classData = ScalaJS.data.example_Sodex
 /** @constructor */
 ScalaJS.c.example_SodexoWatcher$ = (function() {
   ScalaJS.c.java_lang_Object.call(this);
-  this.color0$1 = null;
-  this.color50$1 = null;
-  this.color51$1 = null;
-  this.color100$1 = null;
+  this.COLOR0$1 = null;
+  this.COLOR50$1 = null;
+  this.COLOR51$1 = null;
+  this.COLOR100$1 = null;
   this.currentUrl$1 = null
 });
 ScalaJS.c.example_SodexoWatcher$.prototype = new ScalaJS.inheritable.java_lang_Object();
 ScalaJS.c.example_SodexoWatcher$.prototype.constructor = ScalaJS.c.example_SodexoWatcher$;
-ScalaJS.c.example_SodexoWatcher$.prototype.color0__Lscala_scalajs_js_Dynamic = (function() {
-  return this.color0$1
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR0__Lscala_scalajs_js_Dynamic = (function() {
+  return this.COLOR0$1
 });
-ScalaJS.c.example_SodexoWatcher$.prototype.color50__Lscala_scalajs_js_Dynamic = (function() {
-  return this.color50$1
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR50__Lscala_scalajs_js_Dynamic = (function() {
+  return this.COLOR50$1
 });
-ScalaJS.c.example_SodexoWatcher$.prototype.color51__Lscala_scalajs_js_Dynamic = (function() {
-  return this.color51$1
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR51__Lscala_scalajs_js_Dynamic = (function() {
+  return this.COLOR51$1
 });
-ScalaJS.c.example_SodexoWatcher$.prototype.color100__Lscala_scalajs_js_Dynamic = (function() {
-  return this.color100$1
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR100__Lscala_scalajs_js_Dynamic = (function() {
+  return this.COLOR100$1
 });
 ScalaJS.c.example_SodexoWatcher$.prototype.mobile__Lscala_scalajs_js_Dynamic = (function() {
   return ScalaJS.g["jQuery"]["mobile"]
@@ -296,90 +296,73 @@ ScalaJS.c.example_SodexoWatcher$.prototype.showLoading__Lscala_scalajs_js_Dynami
   return this.mobile__Lscala_scalajs_js_Dynamic()["loading"]("show", ScalaJS.modules.example_JsObjectBuilder().applyDynamicNamed__T__Lscala_collection_Seq__O("apply", ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.scala_Tuple2.getArrayOf(), [new ScalaJS.c.scala_Tuple2().init___O__O("text", "loading"), new ScalaJS.c.scala_Tuple2().init___O__O("textVisible", true), new ScalaJS.c.scala_Tuple2().init___O__O("theme", "a"), new ScalaJS.c.scala_Tuple2().init___O__O("textonly", false), new ScalaJS.c.scala_Tuple2().init___O__O("html", "<h1>Chargement...</h1>")]), 1))))
 });
 ScalaJS.c.example_SodexoWatcher$.prototype.actualMain__V = (function() {
-  var nonLocalReturnKey1 = new ScalaJS.c.java_lang_Object().init___();
-  try {
-    ScalaJS.g["console"]["log"]("START");
-    var x = ScalaJS.g["jQuery"];
-    var jsx$30 = x;
-    var jsx$28 = jsx$30("#actualize, #percentBarContainer");
-    var jsx$31 = new ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$1().init___();
-    var jsx$29 = (function($this) {
-      return (function(arg1) {
-        return $this.apply__O__O(arg1)
-      })
-    })(jsx$31);
-    jsx$28["bind"]("tap", jsx$29);
-    var x$2 = ScalaJS.g["jQuery"];
-    var jsx$34 = x$2;
-    var jsx$32 = jsx$34("select#select-custom-1");
-    var jsx$35 = new ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$2().init___();
-    var jsx$33 = (function($this) {
-      return (function(arg1) {
-        return $this.apply__O__O(arg1)
-      })
-    })(jsx$35);
-    jsx$32["change"](jsx$33);
-    this.actualize__Lscala_scalajs_js_Dynamic();
-    var jsx$36 = ScalaJS.g["document"];
-    var jsx$38 = new ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3().init___O(nonLocalReturnKey1);
-    var jsx$37 = (function($this) {
-      return (function(arg1) {
-        return $this.apply__O__O(arg1)
-      })
-    })(jsx$38);
-    jsx$36["addEventListener"]("deviceready", jsx$37, false);
-    ScalaJS.g["console"]["log"]("END");
-    return undefined
-  } catch ($jsexc$) {
-    if (ScalaJS.is.scala_runtime_NonLocalReturnControl($jsexc$)) {
-      var ex = $jsexc$;
-      if ((ex.key__O() === nonLocalReturnKey1)) {
-        ex.value$mcV$sp__V()
-      } else {
-        throw ex
-      }
-    } else {
-      throw $jsexc$
-    }
-  } finally {
-    /*<skip>*/
-  }
+  ScalaJS.g["console"]["log"]("START");
+  var x = ScalaJS.g["jQuery"];
+  var jsx$30 = x;
+  var jsx$28 = jsx$30("#actualize, #percentBarContainer");
+  var jsx$31 = new ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$1().init___();
+  var jsx$29 = (function($this) {
+    return (function(arg1) {
+      return $this.apply__O__O(arg1)
+    })
+  })(jsx$31);
+  jsx$28["bind"]("tap", jsx$29);
+  var x$2 = ScalaJS.g["jQuery"];
+  var jsx$34 = x$2;
+  var jsx$32 = jsx$34("select#select-custom-1");
+  var jsx$35 = new ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$2().init___();
+  var jsx$33 = (function($this) {
+    return (function(arg1) {
+      return $this.apply__O__O(arg1)
+    })
+  })(jsx$35);
+  jsx$32["change"](jsx$33);
+  this.showLoading__Lscala_scalajs_js_Dynamic();
+  this.actualize__Lscala_scalajs_js_Dynamic();
+  ScalaJS.g["console"]["log"]("END")
 });
 ScalaJS.c.example_SodexoWatcher$.prototype.main__V = (function() {
-  this.actualMain__V()
+  var jsx$36 = ScalaJS.g["document"];
+  var jsx$38 = new ScalaJS.c.example_SodexoWatcher$$anonfun$main$1().init___();
+  var jsx$37 = (function($this) {
+    return (function(arg1) {
+      return $this.apply__O__O(arg1)
+    })
+  })(jsx$38);
+  jsx$36["addEventListener"]("deviceready", jsx$37, false)
 });
 ScalaJS.c.example_SodexoWatcher$.prototype.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic = (function(color, percent) {
   var targetHue = ((1 - ScalaJS.modules.java_lang_Math().pow__D__D__D((percent / 100.0), 3.0)) * color["getHue"]());
   return color["setHue"](targetHue)
 });
 ScalaJS.c.example_SodexoWatcher$.prototype.getBackgroundGradientAdjusted__I__T = (function(percent) {
-  var color0AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.color0__Lscala_scalajs_js_Dynamic(), percent).toString();
-  var color50AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.color50__Lscala_scalajs_js_Dynamic(), percent).toString();
-  var color51AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.color51__Lscala_scalajs_js_Dynamic(), percent).toString();
-  var color100AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.color100__Lscala_scalajs_js_Dynamic(), percent).toString();
+  var color0AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.COLOR0__Lscala_scalajs_js_Dynamic(), percent).toString();
+  var color50AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.COLOR50__Lscala_scalajs_js_Dynamic(), percent).toString();
+  var color51AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.COLOR51__Lscala_scalajs_js_Dynamic(), percent).toString();
+  var color100AdjustedStr = this.adjustToRed__Lscala_scalajs_js_Dynamic__I__Lscala_scalajs_js_Dynamic(this.COLOR100__Lscala_scalajs_js_Dynamic(), percent).toString();
   return new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["\n    width : ", "% ;\n    background : -webkit-linear-gradient(top, ", " 0%, ", " 50%, ", " 51%, ", " 100%); \n    background : linear-gradient(to bottom, ", " 0%, ", " 50%, ", " 51%, ", " 100%);"]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_Predef().genericWrapArray__O__Lscala_collection_mutable_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_Object.getArrayOf(), [ScalaJS.bI(percent), color0AdjustedStr, color50AdjustedStr, color51AdjustedStr, color100AdjustedStr, color0AdjustedStr, color50AdjustedStr, color51AdjustedStr, color100AdjustedStr])))
 });
 ScalaJS.c.example_SodexoWatcher$.prototype.init___ = (function() {
   ScalaJS.c.java_lang_Object.prototype.init___.call(this);
   ScalaJS.moduleInstances.example_SodexoWatcher = this;
-  this.color0$1 = this.Color__Lscala_scalajs_js_Dynamic()("#bfd255")["saturateByRatio"](0.1);
-  this.color50$1 = this.Color__Lscala_scalajs_js_Dynamic()("#8eb92a")["lightenByRatio"](0.3);
-  this.color51$1 = this.Color__Lscala_scalajs_js_Dynamic()("#72aa00")["saturateByRatio"](0.1);
-  this.color100$1 = this.Color__Lscala_scalajs_js_Dynamic()("#9ecb2d")["saturateByRatio"](0.1);
+  this.COLOR0$1 = this.Color__Lscala_scalajs_js_Dynamic()("#bfd255")["saturateByRatio"](0.1);
+  this.COLOR50$1 = this.Color__Lscala_scalajs_js_Dynamic()("#8eb92a")["lightenByRatio"](0.3);
+  this.COLOR51$1 = this.Color__Lscala_scalajs_js_Dynamic()("#72aa00")["saturateByRatio"](0.1);
+  this.COLOR100$1 = this.Color__Lscala_scalajs_js_Dynamic()("#9ecb2d")["saturateByRatio"](0.1);
   this.currentUrl$1 = "https://sodexo-riemarcopolo.moneweb.fr/";
   return this
 });
-ScalaJS.c.example_SodexoWatcher$.prototype.color0 = (function() {
-  return this.color0__Lscala_scalajs_js_Dynamic()
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR0 = (function() {
+  return this.COLOR0__Lscala_scalajs_js_Dynamic()
 });
-ScalaJS.c.example_SodexoWatcher$.prototype.color50 = (function() {
-  return this.color50__Lscala_scalajs_js_Dynamic()
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR50 = (function() {
+  return this.COLOR50__Lscala_scalajs_js_Dynamic()
 });
-ScalaJS.c.example_SodexoWatcher$.prototype.color51 = (function() {
-  return this.color51__Lscala_scalajs_js_Dynamic()
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR51 = (function() {
+  return this.COLOR51__Lscala_scalajs_js_Dynamic()
 });
-ScalaJS.c.example_SodexoWatcher$.prototype.color100 = (function() {
-  return this.color100__Lscala_scalajs_js_Dynamic()
+ScalaJS.c.example_SodexoWatcher$.prototype.COLOR100 = (function() {
+  return this.COLOR100__Lscala_scalajs_js_Dynamic()
 });
 ScalaJS.c.example_SodexoWatcher$.prototype.mobile = (function() {
   return this.mobile__Lscala_scalajs_js_Dynamic()
@@ -688,79 +671,6 @@ ScalaJS.data.example_SodexoWatcher$$anonfun$actualMain$2 = new ScalaJS.ClassType
 ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$2.prototype.$classData = ScalaJS.data.example_SodexoWatcher$$anonfun$actualMain$2;
 
 /** @constructor */
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3 = (function() {
-  ScalaJS.c.scala_runtime_AbstractFunction1.call(this);
-  this.nonLocalReturnKey1$1$2 = null
-});
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype = new ScalaJS.inheritable.scala_runtime_AbstractFunction1();
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype.constructor = ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3;
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype.apply__Lorg_scalajs_dom_Event__Lscala_Nothing = (function(e) {
-  var x = ScalaJS.g["jQuery"];
-  var jsx$3 = x;
-  var jsx$2 = jsx$3("#devicereadyMonitor");
-  var jsx$1 = jsx$2["css"]("background", "green");
-  jsx$1["text"]("Device is ready");
-  throw new ScalaJS.c.scala_runtime_NonLocalReturnControl$mcV$sp().init___O__Lscala_runtime_BoxedUnit(this.nonLocalReturnKey1$1$2, ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit())
-});
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lorg_scalajs_dom_Event__Lscala_Nothing(v1)
-});
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype.init___O = (function(nonLocalReturnKey1$1) {
-  this.nonLocalReturnKey1$1$2 = nonLocalReturnKey1$1;
-  ScalaJS.c.scala_runtime_AbstractFunction1.prototype.init___.call(this);
-  return this
-});
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype.apply = (function(arg$1) {
-  if (ScalaJS.is.java_lang_Object(arg$1)) {
-    return this.apply__O__O(arg$1)
-  } else {
-    return this.apply__Lorg_scalajs_dom_Event__Lscala_Nothing(arg$1)
-  }
-});
-/** @constructor */
-ScalaJS.inheritable.example_SodexoWatcher$$anonfun$actualMain$3 = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.example_SodexoWatcher$$anonfun$actualMain$3.prototype = ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype;
-/** @constructor */
-ScalaJS.classes.example_SodexoWatcher$$anonfun$actualMain$3 = (function(arg$1) {
-  ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.call(this);
-  return this.init___O(arg$1)
-});
-ScalaJS.classes.example_SodexoWatcher$$anonfun$actualMain$3.prototype = ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype;
-ScalaJS.is.example_SodexoWatcher$$anonfun$actualMain$3 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.example_SodexoWatcher$$anonfun$actualMain$3)))
-});
-ScalaJS.as.example_SodexoWatcher$$anonfun$actualMain$3 = (function(obj) {
-  if ((ScalaJS.is.example_SodexoWatcher$$anonfun$actualMain$3(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "example.SodexoWatcher$$anonfun$actualMain$3")
-  }
-});
-ScalaJS.isArrayOf.example_SodexoWatcher$$anonfun$actualMain$3 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.example_SodexoWatcher$$anonfun$actualMain$3)))
-});
-ScalaJS.asArrayOf.example_SodexoWatcher$$anonfun$actualMain$3 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.example_SodexoWatcher$$anonfun$actualMain$3(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lexample.SodexoWatcher$$anonfun$actualMain$3;", depth)
-  }
-});
-ScalaJS.data.example_SodexoWatcher$$anonfun$actualMain$3 = new ScalaJS.ClassTypeData({
-  example_SodexoWatcher$$anonfun$actualMain$3: 0
-}, false, "example.SodexoWatcher$$anonfun$actualMain$3", ScalaJS.data.scala_runtime_AbstractFunction1, {
-  example_SodexoWatcher$$anonfun$actualMain$3: true,
-  scala_Serializable: true,
-  java_io_Serializable: true,
-  scala_runtime_AbstractFunction1: true,
-  scala_Function1: true,
-  java_lang_Object: true
-});
-ScalaJS.c.example_SodexoWatcher$$anonfun$actualMain$3.prototype.$classData = ScalaJS.data.example_SodexoWatcher$$anonfun$actualMain$3;
-
-/** @constructor */
 ScalaJS.c.example_SodexoWatcher$$anonfun$actualize$1 = (function() {
   ScalaJS.c.scala_runtime_AbstractFunction3.call(this)
 });
@@ -894,6 +804,75 @@ ScalaJS.data.example_SodexoWatcher$$anonfun$actualize$2 = new ScalaJS.ClassTypeD
   java_lang_Object: true
 });
 ScalaJS.c.example_SodexoWatcher$$anonfun$actualize$2.prototype.$classData = ScalaJS.data.example_SodexoWatcher$$anonfun$actualize$2;
+
+/** @constructor */
+ScalaJS.c.example_SodexoWatcher$$anonfun$main$1 = (function() {
+  ScalaJS.c.scala_runtime_AbstractFunction1.call(this)
+});
+ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype = new ScalaJS.inheritable.scala_runtime_AbstractFunction1();
+ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype.constructor = ScalaJS.c.example_SodexoWatcher$$anonfun$main$1;
+ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype.apply__Lorg_scalajs_dom_Event__V = (function(e) {
+  ScalaJS.modules.example_SodexoWatcher().showLoading__Lscala_scalajs_js_Dynamic();
+  var x = ScalaJS.g["jQuery"];
+  var jsx$3 = x;
+  var jsx$2 = jsx$3("#devicereadyMonitor");
+  var jsx$1 = jsx$2["css"]("background", "green");
+  jsx$1["text"]("Device is ready");
+  ScalaJS.modules.example_SodexoWatcher().actualMain__V()
+});
+ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype.apply__O__O = (function(v1) {
+  this.apply__Lorg_scalajs_dom_Event__V(v1);
+  return ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit()
+});
+ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype.apply = (function(arg$1) {
+  if (ScalaJS.is.java_lang_Object(arg$1)) {
+    return this.apply__O__O(arg$1)
+  } else {
+    return this.apply__Lorg_scalajs_dom_Event__V(arg$1)
+  }
+});
+/** @constructor */
+ScalaJS.inheritable.example_SodexoWatcher$$anonfun$main$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.example_SodexoWatcher$$anonfun$main$1.prototype = ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype;
+/** @constructor */
+ScalaJS.classes.example_SodexoWatcher$$anonfun$main$1 = (function() {
+  ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.call(this);
+  return this.init___()
+});
+ScalaJS.classes.example_SodexoWatcher$$anonfun$main$1.prototype = ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype;
+ScalaJS.is.example_SodexoWatcher$$anonfun$main$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.example_SodexoWatcher$$anonfun$main$1)))
+});
+ScalaJS.as.example_SodexoWatcher$$anonfun$main$1 = (function(obj) {
+  if ((ScalaJS.is.example_SodexoWatcher$$anonfun$main$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "example.SodexoWatcher$$anonfun$main$1")
+  }
+});
+ScalaJS.isArrayOf.example_SodexoWatcher$$anonfun$main$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.example_SodexoWatcher$$anonfun$main$1)))
+});
+ScalaJS.asArrayOf.example_SodexoWatcher$$anonfun$main$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.example_SodexoWatcher$$anonfun$main$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lexample.SodexoWatcher$$anonfun$main$1;", depth)
+  }
+});
+ScalaJS.data.example_SodexoWatcher$$anonfun$main$1 = new ScalaJS.ClassTypeData({
+  example_SodexoWatcher$$anonfun$main$1: 0
+}, false, "example.SodexoWatcher$$anonfun$main$1", ScalaJS.data.scala_runtime_AbstractFunction1, {
+  example_SodexoWatcher$$anonfun$main$1: true,
+  scala_Serializable: true,
+  java_io_Serializable: true,
+  scala_runtime_AbstractFunction1: true,
+  scala_Function1: true,
+  java_lang_Object: true
+});
+ScalaJS.c.example_SodexoWatcher$$anonfun$main$1.prototype.$classData = ScalaJS.data.example_SodexoWatcher$$anonfun$main$1;
 
 ScalaJS.modules.example_SodexoWatcher().main();
 //@ sourceMappingURL=example.js.map
