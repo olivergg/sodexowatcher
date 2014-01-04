@@ -26,10 +26,10 @@ import scala.scalajs.js.Undefined
 object SodexoWatcher {
 
   // Reference colors for the dynamic linear gradient. (uses color-js Javascript library under the hood)
-  val color0 = Color("#bfd255").saturateByRatio(0.1)
-  val color50 = Color("#8eb92a").lightenByRatio(0.3)
-  val color51 = Color("#72aa00").saturateByRatio(0.1)
-  val color100 = Color("#9ecb2d").saturateByRatio(0.1)
+  val COLOR0 = Color("#bfd255").saturateByRatio(0.1)
+  val COLOR50 = Color("#8eb92a").lightenByRatio(0.3)
+  val COLOR51 = Color("#72aa00").saturateByRatio(0.1)
+  val COLOR100 = Color("#9ecb2d").saturateByRatio(0.1)
 
   /**
    * Helper method to access $.mobile object
@@ -56,8 +56,7 @@ object SodexoWatcher {
     if (!currentUrl.startsWith("http")) {
       changeProgressBar(buildMockSodexoResult())
       mobile.loading("hide")
-    }
-    else {
+    } else {
       jQ.ajax(JsObj[JQueryAjaxSettings](
         url = currentUrl,
         success = {
@@ -75,9 +74,7 @@ object SodexoWatcher {
           (xhr: JQueryXHR, status: js.String, errorThrown: js.String) =>
             showPopupMessage("Erreur réseau " + status);
             mobile.loading("hide")
-        }
-      )
-      )
+        }))
     }
   }
 
@@ -97,11 +94,10 @@ object SodexoWatcher {
     jQ("#percentBar").attr("style", getBackgroundGradientAdjusted(res.percent))
     jQ("#percentage").text(
       res.placesDispo match {
-        case x if x > 1  => s"$x places disponibles (${res.percent} %)"
+        case x if x > 1 => s"$x places disponibles (${res.percent} %)"
         case x if x == 1 => s"1 place disponible (${res.percent} %)"
-        case _           => s"Aucune place disponible (${res.percent} %)"
-      }
-    )
+        case _ => s"Aucune place disponible (${res.percent} %)"
+      })
   }
 
   /**
@@ -134,8 +130,7 @@ object SodexoWatcher {
           showLoading()
           actualize()
         }
-    }
-    )
+    })
 
     // bind change event on the select list
     jQ("select#select-custom-1").change {
@@ -157,28 +152,32 @@ object SodexoWatcher {
     //        }
     //    })
 
+    showLoading()
     actualize()
 
     /// deviceready cordova event to use phonegap API
-    g.document.addEventListener(
-      "deviceready",
-      {
-        e: Event =>
-          jQ("#devicereadyMonitor").css("background", "green").text("Device is ready");
-          return
-      },
-      false
-    )
+//    g.document.addEventListener(
+//      "deviceready",
+//      { e: Event => jQ("#devicereadyMonitor").css("background", "green").text("Device is ready") },
+//      false)
 
     g.console.log("END")
 
-    return
   }
   /**
    * The main function
    */
   def main(): Unit = {
-    actualMain()
+
+    g.document.addEventListener(
+      "deviceready",
+      { e: Event =>
+        showLoading();
+        jQ("#devicereadyMonitor").css("background", "green").text("Device is ready");
+        actualMain()
+      },
+      false)
+    //    actualMain()
   }
 
   /**
@@ -200,10 +199,10 @@ object SodexoWatcher {
    */
   def getBackgroundGradientAdjusted(percent: Int): String = {
 
-    val color0AdjustedStr = adjustToRed(color0, percent).toString
-    val color50AdjustedStr = adjustToRed(color50, percent).toString
-    val color51AdjustedStr = adjustToRed(color51, percent).toString
-    val color100AdjustedStr = adjustToRed(color100, percent).toString
+    val color0AdjustedStr = adjustToRed(COLOR0, percent).toString
+    val color50AdjustedStr = adjustToRed(COLOR50, percent).toString
+    val color51AdjustedStr = adjustToRed(COLOR51, percent).toString
+    val color100AdjustedStr = adjustToRed(COLOR100, percent).toString
     s"""
     width : $percent% ;
     background : -webkit-linear-gradient(top, $color0AdjustedStr 0%, $color50AdjustedStr 50%, $color51AdjustedStr 51%, $color100AdjustedStr 100%); 
