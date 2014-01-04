@@ -25,6 +25,17 @@ import scala.scalajs.js.Undefined
  */
 object SodexoWatcher {
 
+  /**
+   * Helper method to access $.mobile object
+   * //FIXME : we have to use jQuery instead of $....still don't know why.
+   */
+  def mobile: js.Dynamic = g.jQuery.mobile
+
+  /**
+   * Helper method to access color-js Color factory (careful, Color is not an object but a factory method)
+   */
+  def Color: js.Dynamic = g.net.brehaut.Color
+
   // Reference colors for the dynamic linear gradient. (uses color-js Javascript library under the hood)
   val COLOR0 = Color("#bfd255").saturateByRatio(0.1)
   val COLOR50 = Color("#8eb92a").lightenByRatio(0.3)
@@ -32,31 +43,25 @@ object SodexoWatcher {
   val COLOR100 = Color("#9ecb2d").saturateByRatio(0.1)
 
   /**
-   * Helper method to access $.mobile object
+   * The default URL for the actualize method.
    */
-  def mobile = g.jQuery.mobile
+  val DEFAULT_URL = "https://sodexo-riemarcopolo.moneweb.fr/"
 
-  /**
-   * Helper method to access color-js Color factory
-   */
-  def Color = g.net.brehaut.Color
-
-  /**
-   * Variable that stores the currentUrl selected in the select list.
-   */
-  var currentUrl = "https://sodexo-riemarcopolo.moneweb.fr/"
-
+  var lastSelectedUrl = ""
   /**
    * A method to retrieve a SodexoResult and change the percent bar accordingly.
    *
    * @return
    */
-  def actualize(): js.Dynamic = {
+  def actualize(currentUrl: String = DEFAULT_URL): js.Dynamic = {
 
+    dom.console.log("Fetching from url = " + currentUrl)
     if (!currentUrl.startsWith("http")) {
       changeProgressBar(buildMockSodexoResult())
       mobile.loading("hide")
     } else {
+
+      // See http://api.jquery.com/jQuery.ajax/#jQuery-ajax-settings for reference
       jQ.ajax(JsObj[JQueryAjaxSettings](
         url = currentUrl,
         success = {
@@ -67,7 +72,7 @@ object SodexoWatcher {
             val placesDispoTextArray = placesDispoStr.split(" ")
             val placesDispoInt = placesDispoTextArray(1).toInt
             val pourcentage = percentStr.toInt
-            changeProgressBar(new SodexoResult(pourcentage, placesDispoInt))
+            changeProgressBar(SodexoResult(pourcentage, placesDispoInt))
             mobile.loading("hide")
         },
         error = {
@@ -101,97 +106,6 @@ object SodexoWatcher {
   }
 
   /**
-   * Display a simple popup window with the given message.
-   */
-  def showPopupMessage(message: String): js.Dynamic = {
-    jQ("#popupMessage").text(message)
-    g.jQuery("#popupBasic").popup("open", JsObj(transition = "flip"))
-  }
-
-  /**
-   * Show a loading message.
-   * Use mobile.loading("hide") to hide it afterwards.
-   */
-  def showLoading(): js.Dynamic = mobile.loading("show", JsObj(
-    text = "loading",
-    textVisible = true,
-    theme = "a",
-    textonly = false,
-    html = "<h1>Chargement...</h1>"))
-
-  def actualMain(): Unit = {
-
-    g.console.log("START")
-
-    // bind tap event on the actualize button
-    jQ("#actualize, #percentBarContainer").bind("tap", {
-      e: JQueryEventObject =>
-        {
-          showLoading()
-          actualize()
-        }
-    })
-
-    // bind change event on the select list
-    jQ("select#select-custom-1").change {
-      e: JQueryEventObject =>
-        {
-          val selectedVal = jQ(e.delegateTarget).find(":selected").`val`()
-          currentUrl = selectedVal + ""
-          showLoading()
-          actualize()
-        }
-    }
-
-    //    jQ(dom.document).on("pagecontainerload", "#mainPage", {
-    //      (e: JQueryEventObject) =>
-    //        {
-    //          dom.alert("test")
-    //          showLoading()
-    //          actualize()
-    //        }
-    //    })
-
-    showLoading()
-    actualize()
-
-    /// deviceready cordova event to use phonegap API
-//    g.document.addEventListener(
-//      "deviceready",
-//      { e: Event => jQ("#devicereadyMonitor").css("background", "green").text("Device is ready") },
-//      false)
-
-    g.console.log("END")
-
-  }
-  /**
-   * The main function
-   */
-  def main(): Unit = {
-
-    g.document.addEventListener(
-      "deviceready",
-      { e: Event =>
-        showLoading();
-        jQ("#devicereadyMonitor").css("background", "green").text("Device is ready");
-        actualMain()
-      },
-      false)
-    //    actualMain()
-  }
-
-  /**
-   * Shift the given color to the red.
-   * 0 percent => no shift
-   * 100 percent => red (ie hue = 0)
-   */
-  def adjustToRed(color: js.Dynamic, percent: Int): js.Dynamic = {
-    // a non linear progression is used. inspired by a gamma correction.
-    val targetHue = (1 - Math.pow(percent / 100.0, 3)) * color.getHue()
-    color.setHue(targetHue)
-  }
-
-  /**
    * Create the style attribute for the percent bar.
    * The width is in percent.
    * A linear-gradient CSS3 string (compatible with recent browser and with Android mobile browser.
@@ -208,4 +122,89 @@ object SodexoWatcher {
     background : -webkit-linear-gradient(top, $color0AdjustedStr 0%, $color50AdjustedStr 50%, $color51AdjustedStr 51%, $color100AdjustedStr 100%); 
     background : linear-gradient(to bottom, $color0AdjustedStr 0%, $color50AdjustedStr 50%, $color51AdjustedStr 51%, $color100AdjustedStr 100%);"""
   }
+
+  /**
+   * Shift the given color to the red.
+   * 0 % => no shift (original color).
+   * 100 % => red (ie hue = 0)
+   */
+  def adjustToRed(color: js.Dynamic, percent: Int): js.Dynamic = {
+    // we use a non linear progression (somehow like a gamma correction).
+    val targetHue = (1 - Math.pow(percent / 100.0, 3)) * color.getHue()
+    color.setHue(targetHue)
+  }
+
+  /**
+   * Display a simple popup window with the given message.
+   */
+  def showPopupMessage(message: String): js.Dynamic = {
+    jQ("#popupMessage").text(message)
+    g.jQuery("#popupBasic").popup("open", JsObj(transition = "flip"))
+  }
+
+  /**
+   * Show a loading message using jQuery Mobile "loading" function.
+   * Use mobile.loading("hide") to hide it afterwards.
+   */
+  def showLoading(): js.Dynamic = mobile.loading("show", JsObj(
+    text = "loading",
+    textVisible = true,
+    theme = "a",
+    textonly = false,
+    html = "<h1>Chargement...</h1>"))
+
+  /** Your main code goes here */
+  def actualMain(): Unit = {
+
+    g.console.log("START")
+
+    // bind tap event on the actualize button and the percent bar ("tap" is faster than "click")
+    jQ("#actualize, #percentBarContainer").bind("tap", {
+      e: JQueryEventObject =>
+        {
+          showLoading()
+          actualize(lastSelectedUrl)
+        }
+    })
+
+    // bind change event on the select list
+    jQ("select#select-custom-1").change {
+      e: JQueryEventObject =>
+        {
+          val selectedURL = jQ(e.delegateTarget).find(":selected").`val`().asInstanceOf[js.String]
+          lastSelectedUrl = selectedURL
+          showLoading()
+          actualize(selectedURL)
+        }
+    }
+    showLoading()
+    actualize()
+
+    g.console.log("END")
+
+  }
+  /**
+   * The main function (called by scala-js startup.js)
+   */
+  def main(): Unit = {
+
+    // When the device is ready, run the actual main code.
+    // The deviceready is fired by the Cordova API on a real phone.
+    // It won't work on a real browser...unless you use the Ripple Emulator in Chromium/Chrome.
+    g.document.addEventListener(
+      "deviceready",
+      { e: Event =>
+        // //FIXME This showLoading call shouldn't be here...it's just here to somehow initialize the popup. Otherwise
+        // the next call to showLoading won't be showing anything.
+        showLoading();
+
+        // Display a "device is ready" in the bottom to indicate that the event has been received.
+        jQ("#devicereadyMonitor").css("background", "green").text("Device is ready");
+
+        // Call the actual main code.
+        actualMain()
+      },
+      false)
+  }
+
 }
