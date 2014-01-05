@@ -1,14 +1,10 @@
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 body {
   -webkit-touch-callout: none;
-  /* prevent callout to copy image, etc when tap to hold */
   -webkit-text-size-adjust: none;
-  /* prevent webkit from resizing text to fit */
   -webkit-user-select: none;
-  /* prevent copy paste, to allow, change 'none' to 'text' */
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
@@ -46,4 +42,14 @@ body {
 .deviceReady {
   text-align: center;
   background: red;
+}
+.mylabel {
+  font-style: italic;
+  margin-top: 0 ! important;
+}
+#mainPage .ui-header h1 {
+  font-size: 1.3em;
+}
+.hiddenBlock {
+  display: none;
 }
