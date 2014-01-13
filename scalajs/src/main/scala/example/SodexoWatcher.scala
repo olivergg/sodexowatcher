@@ -12,7 +12,7 @@ import org.scalajs.jquery.JQueryAjaxSettings
 import org.scalajs.jquery.JQueryEventObject
 import org.scalajs.jquery.JQueryXHR
 import org.scalajs.jquery.{ jQuery => jQ }
-import example.{ JsObjectBuilder => lit }
+import js.Dynamic.{literal => lit}
 import org.scalajs.jquery.JQuery
 import org.scalajs.jquery.JQueryStatic
 import org.scalajs.dom
@@ -29,7 +29,7 @@ object SodexoWatcher {
    * Helper method to access $.mobile object
    * //FIXME : we have to use jQuery instead of $....still don't know why.
    */
-  def mobile: js.Dynamic = g.jQuery.mobile
+  def mobile: js.Dynamic = g.$.mobile
 
   /**
    * Helper method to access color-js Color factory (careful, Color is not an object but a factory method)
@@ -62,7 +62,7 @@ object SodexoWatcher {
     } else {
 
       // See http://api.jquery.com/jQuery.ajax/#jQuery-ajax-settings for reference
-      jQ.ajax(lit[JQueryAjaxSettings](
+      jQ.ajax(lit(
         url = currentUrl,
         success = {
           (data: js.Any, status: js.String, xhr: JQueryXHR) =>
@@ -79,7 +79,7 @@ object SodexoWatcher {
           (xhr: JQueryXHR, status: js.String, errorThrown: js.String) =>
             showPopupMessage("Erreur réseau " + status);
             mobile.loading("hide")
-        }))
+        }).asInstanceOf[JQueryAjaxSettings])
     }
   }
 
