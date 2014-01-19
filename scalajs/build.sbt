@@ -24,7 +24,7 @@ libraryDependencies ++= Seq(
 
 //// HTML5 Cordova, web application related modifications below
 
-// Target directory for the CSS compiled from LESS.
+// Target directory for the CSS compiled with less.
 (resourceManaged in (Compile, LessKeys.less)) := baseDirectory.value / "cordova" / "www" / "css" / "compiled"
 
 // Extends the original packageJS and optimizeJS tasks by calling a custom method from the project/Build.scala file.
