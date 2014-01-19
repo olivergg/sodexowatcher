@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SodexoWatcher.iml" filepath="$PROJECT_DIR$/.idea/modules/SodexoWatcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SodexoWatcher-build.iml" filepath="$PROJECT_DIR$/.idea/modules/SodexoWatcher-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/scalajs.iml" filepath="$PROJECT_DIR$/scalajs.iml" />
       <module fileurl="file://$PROJECT_DIR$/project/scalajs-build.iml" filepath="$PROJECT_DIR$/project/scalajs-build.iml" />
     </modules>

@@ -1,5 +1,5 @@
 <projectDescription>
-  <name>Example</name>
+  <name>SodexoWatcher</name>
   <buildSpec>
     <buildCommand>
       <name>org.scala-ide.sdt.core.scalabuilder</name>

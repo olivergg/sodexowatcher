@@ -12,7 +12,7 @@ import org.scalajs.jquery.JQueryAjaxSettings
 import org.scalajs.jquery.JQueryEventObject
 import org.scalajs.jquery.JQueryXHR
 import org.scalajs.jquery.{ jQuery => jQ }
-import js.Dynamic.{literal => lit}
+import js.Dynamic.{ literal => lit }
 import org.scalajs.jquery.JQuery
 import org.scalajs.jquery.JQueryStatic
 import org.scalajs.dom
@@ -27,7 +27,6 @@ object SodexoWatcher {
 
   /**
    * Helper method to access $.mobile object
-   * //FIXME : we have to use jQuery instead of $....still don't know why.
    */
   def mobile: js.Dynamic = g.$.mobile
 
@@ -49,6 +48,16 @@ object SodexoWatcher {
 
   var lastSelectedUrl = DEFAULT_URL
   var lastIntervalTimer: js.Number = 0
+
+  val resultQueue = new scala.collection.mutable.Queue[Int]
+
+  private def storeResult(perc: Int): Unit = {
+    resultQueue += perc
+    if (resultQueue.size > 4) {
+      resultQueue.dequeue
+    }
+  }
+
   /**
    * A method to retrieve a SodexoResult and change the percent bar accordingly.
    *
@@ -57,7 +66,9 @@ object SodexoWatcher {
   private def actualize(currentUrl: String = DEFAULT_URL): js.Dynamic = {
     //    dom.console.log("Fetching from url = " + currentUrl)
     if (!currentUrl.startsWith("http")) {
-      changeProgressBar(buildMockSodexoResult())
+      val randomResult = buildMockSodexoResult();
+      changeProgressBar(randomResult)
+      storeResult(randomResult.percent)
       mobile.loading("hide")
     } else {
 
@@ -73,6 +84,7 @@ object SodexoWatcher {
             val placesDispoInt = placesDispoTextArray(1).toInt
             val pourcentage = percentStr.toInt
             changeProgressBar(SodexoResult(pourcentage, placesDispoInt))
+            storeResult(pourcentage)
             mobile.loading("hide")
         },
         error = {
@@ -198,7 +210,7 @@ object SodexoWatcher {
       e: JQueryEventObject =>
         {
           dom.console.log("change slider value")
-//          disableTimer()
+          //          disableTimer()
           updateTimerDelay()
 
         }

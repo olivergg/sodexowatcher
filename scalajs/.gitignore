@@ -1,0 +1,6 @@
+/bin
+/cordova/merges
+/cordova/platforms
+*.iml
+.classpath
+.project
