@@ -245,7 +245,7 @@ object SodexoWatcher {
         }
     })
 
-    // When the device is ready, run the actual main code.
+    // Add a "deviceready" event listener.
     // The deviceready is fired by the Cordova API on a real phone.
     // It won't work on a real browser...unless you use the Ripple Emulator in Chromium/Chrome.
     g.document.addEventListener(
