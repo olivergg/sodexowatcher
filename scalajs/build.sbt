@@ -28,6 +28,7 @@ libraryDependencies ++= Seq(
 (resourceManaged in (Compile, LessKeys.less)) := baseDirectory.value / "cordova" / "www" / "css" / "compiled"
 
 // Extends the original packageJS and optimizeJS tasks by calling a custom method from the project/Build.scala file.
+// (See http://www.scala-sbt.org/0.13.1/docs/Detailed-Topics/Tasks.html#modifying-an-existing-task)
 ScalaJSKeys.packageJS in Compile := {
 	val originalResult=(ScalaJSKeys.packageJS in Compile).value
 	copyToCordova(originalResult)
