@@ -1,6 +1,16 @@
 resolvers += Resolver.url("scala-js-releases",
-    url("http://repo.scala-js.org/repo/releases/"))(Resolver.ivyStylePatterns)
+        url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
+ 	    Resolver.ivyStylePatterns)
 
-addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.2")
+resolvers += "softprops-maven" at "http://dl.bintray.com/content/softprops/maven"
+
+addSbtPlugin("me.lessis" % "less-sbt" % "0.2.2")
+
+addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.2.1")
 
 addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.4.0")
+
+libraryDependencies ++= Seq(
+  // Add your project dependencies here,
+  "org.apache.commons" % "commons-io" % "1.3.2"
+)
