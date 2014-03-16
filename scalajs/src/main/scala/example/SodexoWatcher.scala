@@ -19,10 +19,12 @@ import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.Event
 import scala.scalajs.js.Undefined
+import js.annotation.JSExport
 
 /**
  *
  */
+@JSExport
 object SodexoWatcher {
 
   /**
@@ -233,6 +235,7 @@ object SodexoWatcher {
   /**
    * The main function (called by scala-js startup.js)
    */
+  @JSExport
   def main(): Unit = {
     g.console.log("START")
 
@@ -255,7 +258,7 @@ object SodexoWatcher {
         showLoading();
 
         // Display a "device is ready" in the bottom to indicate that the event has been received.
-        jQ("#devicereadyMonitor").css("background", "green").text("Device is ready");
+        jQ("#devicereadyMonitor").css("background", "yellow").text("Device is ready");
 
         showLoading()
         actualize()

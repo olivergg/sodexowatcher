@@ -15,7 +15,7 @@
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script>
-	// Update configuration (jquery mobile)
+	// Update configuration
 	$(document).on("mobileinit", function() {
 		$.support.cors = true;
 		$.mobile.allowCrossDomainPages = true;
@@ -74,11 +74,14 @@
   </div>
  </div>
  <!--<script type="text/javascript" src="js/index.js"></script>-->
- <!--<script type="text/javascript" src="js/sodexowatcher-opt.js"></script>-->
- <script type="text/javascript" src="js/sodexowatcher-extdeps.js"></script>
- <script type="text/javascript" src="js/sodexowatcher-intdeps.js"></script>
- <script type="text/javascript" src="js/sodexowatcher.js"></script>
  <script type="text/javascript">
+ SodexoWatcher().main();
+ </script>
+ <script type="text/javascript" src="js/sodexowatcher-preopt.js"></script>
+<!--  <script type="text/javascript" src="js/sodexowatcher-extdeps.js"></script> -->
+<!--  <script type="text/javascript" src="js/sodexowatcher-intdeps.js"></script> -->
+<!--  <script type="text/javascript" src="js/sodexowatcher.js"></script> -->
+<script type="text/javascript">
  SodexoWatcher().main();
  </script>
 </body>
