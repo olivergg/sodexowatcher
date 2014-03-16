@@ -12,13 +12,10 @@ version := "0.1-SNAPSHOT"
 // Download and link sources for library dependencies
 EclipseKeys.withSource := true
 
-// Specify additional .js file to be passed to package-js and optimize-js
-unmanagedSources in (Compile, ScalaJSKeys.packageJS) += baseDirectory.value / "cordova" / "www" / "js" / "startup.js"
-
 libraryDependencies ++= Seq(
     "org.scala-lang.modules.scalajs" %% "scalajs-jasmine-test-framework" % scalaJSVersion % "test",
-    "org.scala-lang.modules.scalajs" %% "scalajs-dom" % "0.1-SNAPSHOT",
-    "org.scala-lang.modules.scalajs" %% "scalajs-jquery" % "0.1-SNAPSHOT"
+    "org.scala-lang.modules.scalajs" %% "scalajs-dom" % "0.3",
+    "org.scala-lang.modules.scalajs" %% "scalajs-jquery" % "0.3"
 )
 
 
@@ -34,6 +31,15 @@ ScalaJSKeys.packageJS in Compile := {
 	copyToCordova(originalResult)
 	originalResult
 }
+
+
+ScalaJSKeys.preoptimizeJS in Compile := {
+	val originalResult=(ScalaJSKeys.preoptimizeJS in Compile).value
+	copyToCordova(originalResult)
+	originalResult
+}
+
+
 
 ScalaJSKeys.optimizeJS in Compile := { 
 	val originalResult=(ScalaJSKeys.optimizeJS in Compile).value
