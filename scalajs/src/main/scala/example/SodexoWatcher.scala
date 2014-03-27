@@ -13,7 +13,6 @@ import org.scalajs.jquery.JQueryEventObject
 import org.scalajs.jquery.JQueryXHR
 import org.scalajs.jquery.{ jQuery => jQ }
 import js.Dynamic.{ literal => lit }
-import org.scalajs.jquery.JQuery
 import org.scalajs.jquery.JQueryStatic
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
