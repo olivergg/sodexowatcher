@@ -4,21 +4,19 @@ import scala.language.dynamics
 import scala.scalajs.js
 import scala.scalajs.js.Any.fromBoolean
 import scala.scalajs.js.Any.fromFunction1
-import scala.scalajs.js.Any.fromFunction3
 import scala.scalajs.js.Any.fromString
+import scala.scalajs.js.Any.toString
 import scala.scalajs.js.Dynamic.{ global => g }
 import scala.scalajs.js.String.toScalaString
-import org.scalajs.jquery.JQueryAjaxSettings
-import org.scalajs.jquery.JQueryEventObject
-import org.scalajs.jquery.JQueryXHR
-import org.scalajs.jquery.{ jQuery => jQ }
+import org.scalajs.jquery.{ jQuery => jQ, _ }
 import js.Dynamic.{ literal => lit }
-import org.scalajs.jquery.JQueryStatic
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import org.scalajs.dom.Event
-import scala.scalajs.js.Undefined
+import org.scalajs.dom.{ XMLHttpRequest, Event }
 import js.annotation.JSExport
+import org.scalajs.dom.extensions.Ajax
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scala.util.Failure
+import scala.util.Success
 
 /**
  *
@@ -48,7 +46,7 @@ object SodexoWatcher {
   val DEFAULT_URL = "https://sodexo-riemarcopolo.moneweb.fr/"
 
   var lastSelectedUrl = DEFAULT_URL
-  var lastIntervalTimer: js.Number = 0
+  var lastIntervalTimer = 0
 
   val resultQueue = new scala.collection.mutable.Queue[Int]
 
@@ -64,7 +62,7 @@ object SodexoWatcher {
    *
    * @return
    */
-  private def actualize(currentUrl: String = DEFAULT_URL): js.Dynamic = {
+  private def actualize(currentUrl: String = DEFAULT_URL): Unit = {
     //    dom.console.log("Fetching from url = " + currentUrl)
     if (!currentUrl.startsWith("http")) {
       val randomResult = buildMockSodexoResult();
@@ -73,27 +71,30 @@ object SodexoWatcher {
       mobile.loading("hide")
     } else {
 
-      // See http://api.jquery.com/jQuery.ajax/#jQuery-ajax-settings for reference
-      jQ.ajax(lit(
-        url = currentUrl,
-        success = {
-          (data: js.Any, status: js.String, xhr: JQueryXHR) =>
-            val jqData = jQ(data)
-            val percentStr: String = jqData.find("span.pourcentage").text().replace("%", "")
-            val placesDispoStr: String = jqData.find("div.litPlacesDispo").text();
-            val placesDispoTextArray = placesDispoStr.split(" ")
-            val placesDispoInt = placesDispoTextArray(1).toInt
-            val pourcentage = percentStr.toInt
-            changeProgressBar(SodexoResult(pourcentage, placesDispoInt))
-            storeResult(pourcentage)
-            mobile.loading("hide")
-        },
-        error = {
-          (xhr: JQueryXHR, status: js.String, errorThrown: js.String) =>
-            showPopupMessage("Erreur réseau " + status);
-            mobile.loading("hide")
-        }).asInstanceOf[JQueryAjaxSettings])
+      Ajax.get(url = currentUrl, timeout = 60) onComplete {
+        case Success(data: XMLHttpRequest) => {
+          //          dom.console.log("SUCCESS " + data.responseText)
+          val jqData = jQ(data.responseText)
+          //          dom.console.log("SUCCESS " + jqData)
+          val percentStr: String = jqData.find("span.pourcentage").text().replace("%", "")
+          //          dom.console.log("SUCCESS " + percentStr)
+          val placesDispoStr: String = jqData.find("div.litPlacesDispo").text();
+          val placesDispoTextArray = placesDispoStr.split(" ")
+          val placesDispoInt = placesDispoTextArray(1).toInt
+          val pourcentage = percentStr.toInt
+          changeProgressBar(SodexoResult(pourcentage, placesDispoInt))
+          storeResult(pourcentage)
+          mobile.loading("hide")
+        }
+
+        case Failure(f) => {
+          showPopupMessage("Erreur réseau " + f);
+          mobile.loading("hide")
+        }
+
+      }
     }
+    dom.console.log("" + resultQueue.toString)
   }
 
   /**
@@ -153,18 +154,15 @@ object SodexoWatcher {
   private def showPopupMessage(message: String): js.Dynamic = {
     jQ("#popupMessage").text(message)
     g.jQuery("#popupBasic").popup("open", lit(transition = "flip"))
+
   }
 
   /**
    * Show a loading message using jQuery Mobile "loading" function.
    * Use mobile.loading("hide") to hide it afterwards.
    */
-  private def showLoading(): js.Dynamic = mobile.loading("show", lit(
-    text = "loading",
-    textVisible = true,
-    theme = "a",
-    textonly = false,
-    html = "<h1>Chargement...</h1>"))
+  private def showLoading(): js.Dynamic = mobile.loading("show",
+    js.Dynamic.literal("text" -> "loading", "textVisible" -> true, "theme" -> "a", "textonly" -> false, "html" -> "<h1>Chargement...</h1>"))
 
   private def initEventHandlers(): Unit = {
     // bind tap event on the actualize button and the percent bar ("tap" is faster than "click")
@@ -224,7 +222,7 @@ object SodexoWatcher {
 
   def updateTimerDelay(): Unit = {
     disableTimer()
-    val delaySec: Double = jQ("#sliderAutoRefreshDelay").`val`().asInstanceOf[js.Number]
+    val delaySec: Double = jQ("#sliderAutoRefreshDelay").value().asInstanceOf[Double]
     lastIntervalTimer = dom.setInterval({ () =>
       showLoading();
       actualize(lastSelectedUrl)
@@ -251,13 +249,12 @@ object SodexoWatcher {
     // The deviceready is fired by the Cordova API on a real phone.
     // It won't work on a real browser...unless you use the Ripple Emulator in Chromium/Chrome.
     g.document.addEventListener(
-      "deviceready",
-      { e: Event =>
+      "deviceready", { e: Event =>
         // //FIXME This showLoading call shouldn't be here...but without it, the next call to showLoading does not work.
         showLoading();
 
         // Display a "device is ready" in the bottom to indicate that the event has been received.
-        jQ("#devicereadyMonitor").css("background", "yellow").text("Device is ready");
+        jQ("#devicereadyMonitor").css("background", "green").text("Device is ready");
 
         showLoading()
         actualize()
