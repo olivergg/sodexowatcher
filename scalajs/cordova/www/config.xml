@@ -4,8 +4,8 @@
     <description>
         Watch your favorite restaurant occupancy
     </description>
-    <author email="olivier.ganesan@gmail.com" href="http://cordova.io">
-        Olivier Ganesan
+    <author email="your.email@gmail.com" href="http://cordova.io">
+        Oliver GG
     </author>
     <content src="index.html" />
     <access origin="*" />
