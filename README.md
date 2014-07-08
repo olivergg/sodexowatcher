@@ -16,16 +16,14 @@ The Scala JS output javascript files are copied to the cordova www/js directory 
 You can test the application in Chromium/Chrome browser using the Ripple Emulator (to be able to bypass the Same Origin Policy). See https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc
 
 
-To run the program on a local web browser :
-sbt compile
-sbt fullOptJs
+To run the program on a local web browser, first run `sbt fullOptJs`
 
 Start a web server inside the cordova/www folder (for example on linux, you could use python -m http.server)
+`Launch http://localhost:8080/index.html`
 
-Launch http://localhost:8080/index.html
+To package the final APK, you'll have to setup cordova to use the android platform and use : `cordova run`
 
-
-To package the final APK, you'll have to setup cordova to use the android platform and use cordova run to install and launch the application on a real device.
+to install and launch the application on a real device.
 
 
 
