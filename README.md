@@ -19,7 +19,7 @@ You can test the application in Chromium/Chrome browser using the Ripple Emulato
 To run the program on a local web browser, first run `sbt fullOptJs`
 
 Start a web server inside the cordova/www folder (for example on linux, you could use python -m http.server)
-`Launch http://localhost:8080/index.html`
+Launch `http://localhost:8080/index.html`
 
 To package the final APK, you'll have to setup cordova to use the android platform and use : `cordova run`
 
