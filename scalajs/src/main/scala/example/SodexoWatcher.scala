@@ -222,7 +222,7 @@ object SodexoWatcher {
 
   def updateTimerDelay(): Unit = {
     disableTimer()
-    val delaySec: Double = jQ("#sliderAutoRefreshDelay").value().asInstanceOf[Double]
+    val delaySec = jQ("#sliderAutoRefreshDelay").value()
     lastIntervalTimer = dom.setInterval({ () =>
       showLoading();
       actualize(lastSelectedUrl)
