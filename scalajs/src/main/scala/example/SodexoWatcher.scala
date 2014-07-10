@@ -178,7 +178,7 @@ object SodexoWatcher {
     jQ("select#select-custom-1").change {
       e: JQueryEventObject =>
         {
-          val selectedURL = jQ(e.delegateTarget).find(":selected").`val`().asInstanceOf[js.String]
+          val selectedURL = jQ(e.delegateTarget).find(":selected").value().toString
           lastSelectedUrl = selectedURL
           showLoading()
           actualize(selectedURL)
@@ -189,7 +189,7 @@ object SodexoWatcher {
     jQ("select#flip-1").change {
       e: JQueryEventObject =>
         {
-          (jQ(e.delegateTarget).find(":selected").`val`().asInstanceOf[js.String]: String) match {
+          (jQ(e.delegateTarget).find(":selected").value().toString()) match {
             case "on" => {
               jQ("#autorefreshSliderContainer").removeClass("hiddenBlock");
               updateTimerDelay()

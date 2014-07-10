@@ -1986,7 +1986,7 @@ ScalaJS.c.Lexample_SodexoWatcher$.prototype.example$SodexoWatcher$$initEventHand
   ScalaJS.protect(ScalaJS.g["jQuery"])("select#select-custom-1")["change"]((function() {
     return (function(e$2) {
       var e = e$2;
-      var selectedURL = ScalaJS.as.T(ScalaJS.protect(ScalaJS.g["jQuery"])(e["delegateTarget"])["find"](":selected")["val"]());
+      var selectedURL = ScalaJS.objectToString(ScalaJS.protect(ScalaJS.g["jQuery"])(e["delegateTarget"])["find"](":selected")["val"]());
       ScalaJS.m.Lexample_SodexoWatcher().lastSelectedUrl$und$eq__T__V(selectedURL);
       ScalaJS.m.Lexample_SodexoWatcher().example$SodexoWatcher$$showLoading__sjs_js_Dynamic();
       ScalaJS.m.Lexample_SodexoWatcher().example$SodexoWatcher$$actualize__T__V(selectedURL)
@@ -1995,7 +1995,7 @@ ScalaJS.c.Lexample_SodexoWatcher$.prototype.example$SodexoWatcher$$initEventHand
   ScalaJS.protect(ScalaJS.g["jQuery"])("select#flip-1")["change"]((function() {
     return (function(e$2) {
       var e = e$2;
-      var x1 = ScalaJS.as.T(ScalaJS.protect(ScalaJS.g["jQuery"])(e["delegateTarget"])["find"](":selected")["val"]());
+      var x1 = ScalaJS.objectToString(ScalaJS.protect(ScalaJS.g["jQuery"])(e["delegateTarget"])["find"](":selected")["val"]());
       if (ScalaJS.anyRefEqEq("on", x1)) {
         ScalaJS.protect(ScalaJS.g["jQuery"])("#autorefreshSliderContainer")["removeClass"]("hiddenBlock");
         ScalaJS.m.Lexample_SodexoWatcher().updateTimerDelay__V();
