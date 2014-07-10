@@ -13,7 +13,7 @@ You'll have to install npm to install cordova. See https://cordova.apache.org/do
 The Scala JS output javascript files are copied to the cordova www/js directory after the fastOptJS and fullOptJs tasks  (see http://www.scala-sbt.org/0.13.1/docs/Detailed-Topics/Tasks.html#modifying-an-existing-task).
 
 
-You can test the application in Chromium/Chrome browser using the Ripple Emulator (to be able to bypass the Same Origin Policy). See https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc
+You can test the application in Chromium/Chrome browser using the Ripple Emulator (to be able to bypass the Same Origin Policy). See http://www.raymondcamden.com/2013/11/5/Ripple-is-Reborn
 
 
 To run the program on a local web browser, first run `sbt fullOptJs`
