@@ -851,6 +851,44 @@ ScalaJS.i.s_Product2$class__productElement__s_Product2__I__O = (function($$this,
 ScalaJS.i.s_Product2$class__$init$__s_Product2__V = (function($$this) {
   /*<skip>*/
 });
+ScalaJS.i.s_Product5$class__productArity__s_Product5__I = (function($$this) {
+  return 5
+});
+ScalaJS.i.s_Product5$class__productElement__s_Product5__I__O = (function($$this, n) {
+  var x1 = n;
+  switch (x1) {
+    case 0:
+      {
+        return $$this.$$und1__O();
+        break
+      };
+    case 1:
+      {
+        return $$this.$$und2__O();
+        break
+      };
+    case 2:
+      {
+        return $$this.$$und3__O();
+        break
+      };
+    case 3:
+      {
+        return $$this.$$und4__O();
+        break
+      };
+    case 4:
+      {
+        return $$this.$$und5__O();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(n));
+  }
+});
+ScalaJS.i.s_Product5$class__$init$__s_Product5__V = (function($$this) {
+  /*<skip>*/
+});
 ScalaJS.i.s_concurrent_ExecutionContext$class__prepare__s_concurrent_ExecutionContext__s_concurrent_ExecutionContext = (function($$this) {
   return $$this
 });
@@ -1577,6 +1615,9 @@ ScalaJS.i.scm_SeqLike$class__$init$__scm_SeqLike__V = (function($$this) {
 ScalaJS.i.scm_Traversable$class__$init$__scm_Traversable__V = (function($$this) {
   /*<skip>*/
 });
+ScalaJS.i.sjs_js_LowPrioAnyImplicits$class__$init$__sjs_js_LowPrioAnyImplicits__V = (function($$this) {
+  /*<skip>*/
+});
 ScalaJS.i.sjsr_RuntimeString$class__charAt__sjsr_RuntimeString__I__C = (function($$this, index) {
   return (ScalaJS.uD($$this["charCodeAt"](index)) & 65535)
 });
@@ -1981,7 +2022,7 @@ ScalaJS.c.Lexample_SodexoWatcher$.prototype.disableTimer__V = (function() {
 });
 ScalaJS.c.Lexample_SodexoWatcher$.prototype.updateTimerDelay__V = (function() {
   this.disableTimer__V();
-  var delaySec = ScalaJS.uD(ScalaJS.protect(ScalaJS.g["jQuery"])("#sliderAutoRefreshDelay")["val"]());
+  var delaySec = ScalaJS.protect(ScalaJS.g["jQuery"])("#sliderAutoRefreshDelay")["val"]();
   this.lastIntervalTimer$und$eq__I__V(ScalaJS.uI(ScalaJS.g["setInterval"]((function() {
     return (function() {
       ScalaJS.m.Lexample_SodexoWatcher().example$SodexoWatcher$$showLoading__sjs_js_Dynamic();
@@ -2322,6 +2363,124 @@ ScalaJS.d.T2 = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.T2.prototype.$classData = ScalaJS.d.T2;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.T5 = (function() {
+  ScalaJS.c.O.call(this);
+  this.$$und1$1 = null;
+  this.$$und2$1 = null;
+  this.$$und3$1 = null;
+  this.$$und4$1 = null;
+  this.$$und5$1 = null
+});
+ScalaJS.c.T5.prototype = new ScalaJS.h.O();
+ScalaJS.c.T5.prototype.constructor = ScalaJS.c.T5;
+/** @constructor */
+ScalaJS.h.T5 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.T5.prototype = ScalaJS.c.T5.prototype;
+ScalaJS.c.T5.prototype.productArity__I = (function() {
+  return ScalaJS.i.s_Product5$class__productArity__s_Product5__I(this)
+});
+ScalaJS.c.T5.prototype.productElement__I__O = (function(n) {
+  return ScalaJS.i.s_Product5$class__productElement__s_Product5__I__O(this, n)
+});
+ScalaJS.c.T5.prototype.$$und1__O = (function() {
+  return this.$$und1$1
+});
+ScalaJS.c.T5.prototype.$$und2__O = (function() {
+  return this.$$und2$1
+});
+ScalaJS.c.T5.prototype.$$und3__O = (function() {
+  return this.$$und3$1
+});
+ScalaJS.c.T5.prototype.$$und4__O = (function() {
+  return this.$$und4$1
+});
+ScalaJS.c.T5.prototype.$$und5__O = (function() {
+  return this.$$und5$1
+});
+ScalaJS.c.T5.prototype.toString__T = (function() {
+  return (((((((((("(" + this.$$und1__O()) + ",") + this.$$und2__O()) + ",") + this.$$und3__O()) + ",") + this.$$und4__O()) + ",") + this.$$und5__O()) + ")")
+});
+ScalaJS.c.T5.prototype.productPrefix__T = (function() {
+  return "Tuple5"
+});
+ScalaJS.c.T5.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.T5.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.T5(x$1)
+});
+ScalaJS.c.T5.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.T5.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.T5(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var Tuple5$1 = ScalaJS.as.T5(x$1);
+      return (((((ScalaJS.anyEqEq(this.$$und1__O(), Tuple5$1.$$und1__O()) && ScalaJS.anyEqEq(this.$$und2__O(), Tuple5$1.$$und2__O())) && ScalaJS.anyEqEq(this.$$und3__O(), Tuple5$1.$$und3__O())) && ScalaJS.anyEqEq(this.$$und4__O(), Tuple5$1.$$und4__O())) && ScalaJS.anyEqEq(this.$$und5__O(), Tuple5$1.$$und5__O())) && Tuple5$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.T5.prototype.init___O__O__O__O__O = (function(_1, _2, _3, _4, _5) {
+  this.$$und1$1 = _1;
+  this.$$und2$1 = _2;
+  this.$$und3$1 = _3;
+  this.$$und4$1 = _4;
+  this.$$und5$1 = _5;
+  ScalaJS.c.O.prototype.init___.call(this);
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  ScalaJS.i.s_Product5$class__$init$__s_Product5__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.T5 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.T5)))
+});
+ScalaJS.as.T5 = (function(obj) {
+  if ((ScalaJS.is.T5(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "scala.Tuple5")
+  }
+});
+ScalaJS.isArrayOf.T5 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.T5)))
+});
+ScalaJS.asArrayOf.T5 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.T5(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lscala.Tuple5;", depth)
+  }
+});
+ScalaJS.d.T5 = new ScalaJS.ClassTypeData({
+  T5: 0
+}, false, "scala.Tuple5", ScalaJS.d.O, {
+  T5: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product5: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  O: 1
+});
+ScalaJS.c.T5.prototype.$classData = ScalaJS.d.T5;
 /*<skip>*/;
 ScalaJS.isArrayOf.jl_Boolean = (function(obj, depth) {
   return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_Boolean)))
@@ -2866,8 +3025,10 @@ ScalaJS.m.jl_Long = (function() {
 /** @constructor */
 ScalaJS.c.jl_Math$ = (function() {
   ScalaJS.c.O.call(this);
+  this.internalRandom$1 = null;
   this.E$1 = 0.0;
-  this.PI$1 = 0.0
+  this.PI$1 = 0.0;
+  this.bitmap$0$1 = false
 });
 ScalaJS.c.jl_Math$.prototype = new ScalaJS.h.O();
 ScalaJS.c.jl_Math$.prototype.constructor = ScalaJS.c.jl_Math$;
@@ -3359,6 +3520,7 @@ ScalaJS.c.jl_Throwable.prototype.$classData = ScalaJS.d.jl_Throwable;
 /** @constructor */
 ScalaJS.c.ju_Random = (function() {
   ScalaJS.c.O.call(this);
+  this.seed$1 = ScalaJS.m.sjsr_RuntimeLong().zero__sjsr_RuntimeLong();
   this.nextNextGaussian$1 = 0.0;
   this.haveNextNextGaussian$1 = false
 });
@@ -3369,15 +3531,53 @@ ScalaJS.h.ju_Random = (function() {
   /*<skip>*/
 });
 ScalaJS.h.ju_Random.prototype = ScalaJS.c.ju_Random.prototype;
-ScalaJS.c.ju_Random.prototype.nextDouble__D = (function() {
-  return ScalaJS.uD(ScalaJS.g["Math"]["random"]())
+ScalaJS.c.ju_Random.prototype.seed__p1__J = (function() {
+  return this.seed$1
+});
+ScalaJS.c.ju_Random.prototype.seed$und$eq__p1__J__V = (function(x$1) {
+  this.seed$1 = x$1
+});
+ScalaJS.c.ju_Random.prototype.haveNextNextGaussian$und$eq__p1__Z__V = (function(x$1) {
+  this.haveNextNextGaussian$1 = x$1
+});
+ScalaJS.c.ju_Random.prototype.setSeed__J__V = (function(seed_in) {
+  this.seed$und$eq__p1__J__V(seed_in.$$up__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong(2942573, 6011, 0)).$$amp__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong(4194303, 4194303, 15)));
+  this.haveNextNextGaussian$und$eq__p1__Z__V(false)
+});
+ScalaJS.c.ju_Random.prototype.next__I__I = (function(bits) {
+  this.seed$und$eq__p1__J__V(this.seed__p1__J().$$times__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong(2942573, 6011, 0)).$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong(11, 0, 0)).$$amp__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong(4194303, 4194303, 15)));
+  return this.seed__p1__J().$$greater$greater$greater__I__sjsr_RuntimeLong(((48 - bits) | 0)).toInt__I()
 });
 ScalaJS.c.ju_Random.prototype.nextInt__I__I = (function(n) {
-  return (ScalaJS.uD(ScalaJS.g["Math"]["floor"]((this.nextDouble__D() * n))) | 0)
+  if ((n <= 0)) {
+    throw new ScalaJS.c.jl_IllegalArgumentException().init___T("n must be positive")
+  };
+  if (((n & (-n)) === n)) {
+    return ScalaJS.m.sjsr_RuntimeLong().fromInt__I__sjsr_RuntimeLong(n).$$times__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().fromInt__I__sjsr_RuntimeLong(this.next__I__I(31))).$$greater$greater__I__sjsr_RuntimeLong(31).toInt__I()
+  } else {
+    return this.loop$1__p1__I__I(n)
+  }
 });
-ScalaJS.c.ju_Random.prototype.init___ = (function() {
+ScalaJS.c.ju_Random.prototype.loop$1__p1__I__I = (function(n$1) {
+  var _$this = this;
+  tailCallLoop: while (true) {
+    var bits = _$this.next__I__I(31);
+    var value = (bits % n$1);
+    if ((((((bits - value) | 0) + ((n$1 - 1) | 0)) | 0) < 0)) {
+      continue tailCallLoop
+    } else {
+      return value
+    }
+  }
+});
+ScalaJS.c.ju_Random.prototype.init___J = (function(seed_in) {
   ScalaJS.c.O.prototype.init___.call(this);
   this.haveNextNextGaussian$1 = false;
+  this.setSeed__J__V(seed_in);
+  return this
+});
+ScalaJS.c.ju_Random.prototype.init___ = (function() {
+  ScalaJS.c.ju_Random.prototype.init___J.call(this, ScalaJS.m.ju_Random().java$util$Random$$randomSeed__J());
   return this
 });
 /*<skip>*/;
@@ -3409,6 +3609,61 @@ ScalaJS.d.ju_Random = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.ju_Random.prototype.$classData = ScalaJS.d.ju_Random;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.ju_Random$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.ju_Random$.prototype = new ScalaJS.h.O();
+ScalaJS.c.ju_Random$.prototype.constructor = ScalaJS.c.ju_Random$;
+/** @constructor */
+ScalaJS.h.ju_Random$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.ju_Random$.prototype = ScalaJS.c.ju_Random$.prototype;
+ScalaJS.c.ju_Random$.prototype.java$util$Random$$randomSeed__J = (function() {
+  return ScalaJS.m.sjsr_RuntimeLong().fromInt__I__sjsr_RuntimeLong(this.randomInt__p1__I()).$$less$less__I__sjsr_RuntimeLong(32).$$bar__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().fromInt__I__sjsr_RuntimeLong(this.randomInt__p1__I()).$$amp__sjsr_RuntimeLong__sjsr_RuntimeLong(ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong(4194303, 1023, 0)))
+});
+ScalaJS.c.ju_Random$.prototype.randomInt__p1__I = (function() {
+  return ((ScalaJS.uD(ScalaJS.g["Math"]["floor"]((ScalaJS.uD(ScalaJS.g["Math"]["random"]()) * 4.294967296E9))) - 2.147483648E9) | 0)
+});
+/*<skip>*/;
+ScalaJS.is.ju_Random$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.ju_Random$)))
+});
+ScalaJS.as.ju_Random$ = (function(obj) {
+  if ((ScalaJS.is.ju_Random$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "java.util.Random$")
+  }
+});
+ScalaJS.isArrayOf.ju_Random$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.ju_Random$)))
+});
+ScalaJS.asArrayOf.ju_Random$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.ju_Random$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Ljava.util.Random$;", depth)
+  }
+});
+ScalaJS.d.ju_Random$ = new ScalaJS.ClassTypeData({
+  ju_Random$: 0
+}, false, "java.util.Random$", ScalaJS.d.O, {
+  ju_Random$: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  O: 1
+});
+ScalaJS.c.ju_Random$.prototype.$classData = ScalaJS.d.ju_Random$;
+ScalaJS.n.ju_Random = undefined;
+ScalaJS.m.ju_Random = (function() {
+  if ((!ScalaJS.n.ju_Random)) {
+    ScalaJS.n.ju_Random = new ScalaJS.c.ju_Random$().init___()
+  };
+  return ScalaJS.n.ju_Random
+});
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.ju_regex_Matcher = (function() {
@@ -7955,6 +8210,12 @@ ScalaJS.c.sjs_js_Any$.prototype.fromTraversableOnce__sc_TraversableOnce__sjs_js_
 ScalaJS.c.sjs_js_Any$.prototype.$$anonfun$1__p1__O__sjs_js_Array__I = (function(x, result$1) {
   return ScalaJS.uI(result$1["push"](x))
 });
+ScalaJS.c.sjs_js_Any$.prototype.init___ = (function() {
+  ScalaJS.c.O.prototype.init___.call(this);
+  ScalaJS.n.sjs_js_Any = this;
+  ScalaJS.i.sjs_js_LowPrioAnyImplicits$class__$init$__sjs_js_LowPrioAnyImplicits__V(this);
+  return this
+});
 /*<skip>*/;
 ScalaJS.is.sjs_js_Any$ = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sjs_js_Any$)))
@@ -7980,6 +8241,7 @@ ScalaJS.d.sjs_js_Any$ = new ScalaJS.ClassTypeData({
   sjs_js_Any$: 0
 }, false, "scala.scalajs.js.Any$", ScalaJS.d.O, {
   sjs_js_Any$: 1,
+  sjs_js_LowPrioAnyImplicits: 1,
   O: 1
 });
 ScalaJS.c.sjs_js_Any$.prototype.$classData = ScalaJS.d.sjs_js_Any$;
@@ -9583,6 +9845,22 @@ ScalaJS.d.jl_Double = new ScalaJS.ClassTypeData({
 }, (function(x) {
   return (typeof(x) === "number")
 }));
+/** @constructor */
+ScalaJS.c.jl_Error = (function() {
+  ScalaJS.c.jl_Throwable.call(this)
+});
+ScalaJS.c.jl_Error.prototype = new ScalaJS.h.jl_Throwable();
+ScalaJS.c.jl_Error.prototype.constructor = ScalaJS.c.jl_Error;
+/** @constructor */
+ScalaJS.h.jl_Error = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.jl_Error.prototype = ScalaJS.c.jl_Error.prototype;
+ScalaJS.c.jl_Error.prototype.init___T = (function(s) {
+  ScalaJS.c.jl_Error.prototype.init___T__jl_Throwable.call(this, s, null);
+  return this
+});
+/*<skip>*/;
 ScalaJS.is.jl_Error = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_Error)))
 });
@@ -9611,6 +9889,7 @@ ScalaJS.d.jl_Error = new ScalaJS.ClassTypeData({
   Ljava_io_Serializable: 1,
   O: 1
 });
+ScalaJS.c.jl_Error.prototype.$classData = ScalaJS.d.jl_Error;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.jl_Exception = (function() {
@@ -10060,6 +10339,11 @@ ScalaJS.h.s_Predef$ = (function() {
   /*<skip>*/
 });
 ScalaJS.h.s_Predef$.prototype = ScalaJS.c.s_Predef$.prototype;
+ScalaJS.c.s_Predef$.prototype.assert__Z__V = (function(assertion) {
+  if ((!assertion)) {
+    throw new ScalaJS.c.jl_AssertionError().init___O("assertion failed")
+  }
+});
 ScalaJS.c.s_Predef$.prototype.require__Z__V = (function(requirement) {
   if ((!requirement)) {
     throw new ScalaJS.c.jl_IllegalArgumentException().init___T("requirement failed")
@@ -12395,6 +12679,22 @@ ScalaJS.c.sjsr_RuntimeLong.prototype.$$less$less__I__sjsr_RuntimeLong = (functio
     }
   }
 });
+ScalaJS.c.sjsr_RuntimeLong.prototype.$$greater$greater$greater__I__sjsr_RuntimeLong = (function(n_in) {
+  ScalaJS.m.s_Predef().assert__Z__V((this.h__I() === (this.h__I() & 1048575)));
+  var n = (n_in & 63);
+  if ((n < 22)) {
+    var remBits = ((22 - n) | 0);
+    return ScalaJS.m.sjsr_RuntimeLong().masked__I__I__I__sjsr_RuntimeLong(((this.l__I() >> n) | (this.m__I() << remBits)), ((this.m__I() >> n) | (this.h__I() << remBits)), ((this.h__I() >>> n) | 0))
+  } else {
+    if ((n < 44)) {
+      var shfBits = ((n - 22) | 0);
+      var remBits$2 = ((44 - n) | 0);
+      return ScalaJS.m.sjsr_RuntimeLong().masked__I__I__I__sjsr_RuntimeLong(((this.m__I() >> shfBits) | (this.h__I() << remBits$2)), ((this.h__I() >>> shfBits) | 0), 0)
+    } else {
+      return ScalaJS.m.sjsr_RuntimeLong().masked__I__I__I__sjsr_RuntimeLong(((this.h__I() >>> ((n - 44) | 0)) | 0), 0, 0)
+    }
+  }
+});
 ScalaJS.c.sjsr_RuntimeLong.prototype.$$greater$greater__I__sjsr_RuntimeLong = (function(n_in) {
   var n = (n_in & 63);
   var negative = ((this.h__I() & 524288) !== 0);
@@ -12457,6 +12757,15 @@ ScalaJS.c.sjsr_RuntimeLong.prototype.$$greater__sjsr_RuntimeLong__Z = (function(
 ScalaJS.c.sjsr_RuntimeLong.prototype.$$greater$eq__sjsr_RuntimeLong__Z = (function(y) {
   return (ScalaJS.anyRefEqEq(this, y) || this.$$greater__sjsr_RuntimeLong__Z(y))
 });
+ScalaJS.c.sjsr_RuntimeLong.prototype.$$bar__sjsr_RuntimeLong__sjsr_RuntimeLong = (function(y) {
+  return ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong((this.l__I() | y.l__I()), (this.m__I() | y.m__I()), (this.h__I() | y.h__I()))
+});
+ScalaJS.c.sjsr_RuntimeLong.prototype.$$amp__sjsr_RuntimeLong__sjsr_RuntimeLong = (function(y) {
+  return ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong((this.l__I() & y.l__I()), (this.m__I() & y.m__I()), (this.h__I() & y.h__I()))
+});
+ScalaJS.c.sjsr_RuntimeLong.prototype.$$up__sjsr_RuntimeLong__sjsr_RuntimeLong = (function(y) {
+  return ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong((this.l__I() ^ y.l__I()), (this.m__I() ^ y.m__I()), (this.h__I() ^ y.h__I()))
+});
 ScalaJS.c.sjsr_RuntimeLong.prototype.$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong = (function(y) {
   var sum0 = ((this.l__I() + y.l__I()) | 0);
   var sum1 = ((((this.m__I() + y.m__I()) | 0) + (sum0 >> 22)) | 0);
@@ -12465,6 +12774,81 @@ ScalaJS.c.sjsr_RuntimeLong.prototype.$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong 
 });
 ScalaJS.c.sjsr_RuntimeLong.prototype.$$minus__sjsr_RuntimeLong__sjsr_RuntimeLong = (function(y) {
   return this.$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong(y.unary$und$minus__sjsr_RuntimeLong())
+});
+ScalaJS.c.sjsr_RuntimeLong.prototype.$$times__sjsr_RuntimeLong__sjsr_RuntimeLong = (function(y) {
+  var x1 = this.chunk13$1__p2__sjsr_RuntimeLong__T5(this);
+  matchEnd3: {
+    if ((x1 !== null)) {
+      var a0 = ScalaJS.uI(x1.$$und1__O());
+      var a1 = ScalaJS.uI(x1.$$und2__O());
+      var a2 = ScalaJS.uI(x1.$$und3__O());
+      var a3 = ScalaJS.uI(x1.$$und4__O());
+      var a4 = ScalaJS.uI(x1.$$und5__O());
+      var x$1 = new ScalaJS.c.T5().init___O__O__O__O__O(a0, a1, a2, a3, a4);
+      break matchEnd3
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  };
+  var a0$2 = ScalaJS.uI(x$1.$$und1__O());
+  var a1$2 = ScalaJS.uI(x$1.$$und2__O());
+  var a2$2 = ScalaJS.uI(x$1.$$und3__O());
+  var a3$2 = ScalaJS.uI(x$1.$$und4__O());
+  var a4$2 = ScalaJS.uI(x$1.$$und5__O());
+  var x1$2 = this.chunk13$1__p2__sjsr_RuntimeLong__T5(y);
+  matchEnd3$2: {
+    if ((x1$2 !== null)) {
+      var b0 = ScalaJS.uI(x1$2.$$und1__O());
+      var b1 = ScalaJS.uI(x1$2.$$und2__O());
+      var b2 = ScalaJS.uI(x1$2.$$und3__O());
+      var b3 = ScalaJS.uI(x1$2.$$und4__O());
+      var b4 = ScalaJS.uI(x1$2.$$und5__O());
+      var x$2 = new ScalaJS.c.T5().init___O__O__O__O__O(b0, b1, b2, b3, b4);
+      break matchEnd3$2
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1$2)
+  };
+  var b0$2 = ScalaJS.uI(x$2.$$und1__O());
+  var b1$2 = ScalaJS.uI(x$2.$$und2__O());
+  var b2$2 = ScalaJS.uI(x$2.$$und3__O());
+  var b3$2 = ScalaJS.uI(x$2.$$und4__O());
+  var b4$2 = ScalaJS.uI(x$2.$$und5__O());
+  var p0 = ScalaJS.imul(a0$2, b0$2);
+  var p1 = ScalaJS.imul(a1$2, b0$2);
+  var p2 = ScalaJS.imul(a2$2, b0$2);
+  var p3 = ScalaJS.imul(a3$2, b0$2);
+  var p4 = ScalaJS.imul(a4$2, b0$2);
+  if ((b1$2 !== 0)) {
+    p1 = ((p1 + ScalaJS.imul(a0$2, b1$2)) | 0);
+    p2 = ((p2 + ScalaJS.imul(a1$2, b1$2)) | 0);
+    p3 = ((p3 + ScalaJS.imul(a2$2, b1$2)) | 0);
+    p4 = ((p4 + ScalaJS.imul(a3$2, b1$2)) | 0)
+  };
+  if ((b2$2 !== 0)) {
+    p2 = ((p2 + ScalaJS.imul(a0$2, b2$2)) | 0);
+    p3 = ((p3 + ScalaJS.imul(a1$2, b2$2)) | 0);
+    p4 = ((p4 + ScalaJS.imul(a2$2, b2$2)) | 0)
+  };
+  if ((b3$2 !== 0)) {
+    p3 = ((p3 + ScalaJS.imul(a0$2, b3$2)) | 0);
+    p4 = ((p4 + ScalaJS.imul(a1$2, b3$2)) | 0)
+  };
+  if ((b4$2 !== 0)) {
+    p4 = ((p4 + ScalaJS.imul(a0$2, b4$2)) | 0)
+  };
+  var c00 = (p0 & 4194303);
+  var c01 = ((p1 & 511) << 13);
+  var c0 = ((c00 + c01) | 0);
+  var c10 = (p0 >> 22);
+  var c11 = (p1 >> 9);
+  var c12 = ((p2 & 262143) << 4);
+  var c13 = ((p3 & 31) << 17);
+  var c1 = ((((((c10 + c11) | 0) + c12) | 0) + c13) | 0);
+  var c22 = (p2 >> 18);
+  var c23 = (p3 >> 5);
+  var c24 = ((p4 & 4095) << 8);
+  var c2 = ((((c22 + c23) | 0) + c24) | 0);
+  var c1n = ((c1 + (c0 >> 22)) | 0);
+  return ScalaJS.m.sjsr_RuntimeLong().masked__I__I__I__sjsr_RuntimeLong(c0, c1n, ((c2 + (c1n >> 22)) | 0))
 });
 ScalaJS.c.sjsr_RuntimeLong.prototype.toString__T = (function() {
   if (this.scala$scalajs$runtime$RuntimeLong$$isZero__Z()) {
@@ -12607,6 +12991,9 @@ ScalaJS.c.sjsr_RuntimeLong.prototype.maskRight__p2__I__sjsr_RuntimeLong = (funct
       return ScalaJS.m.sjsr_RuntimeLong().apply__I__I__I__sjsr_RuntimeLong(this.l__I(), this.m__I(), (this.h__I() & (((1 << ((bits - 44) | 0)) - 1) | 0)))
     }
   }
+});
+ScalaJS.c.sjsr_RuntimeLong.prototype.chunk13$1__p2__sjsr_RuntimeLong__T5 = (function(v) {
+  return new ScalaJS.c.T5().init___O__O__O__O__O((v.l__I() & 8191), ((v.l__I() >> 13) | ((v.m__I() & 15) << 9)), ((v.m__I() >> 4) & 8191), ((v.m__I() >> 17) | ((v.h__I() & 255) << 5)), ((v.h__I() & 1048320) >> 8))
 });
 ScalaJS.c.sjsr_RuntimeLong.prototype.toString0$1__p2__sjsr_RuntimeLong__T__sjsr_RuntimeLong__T = (function(v, acc, tenPowL$1) {
   var _$this = this;
@@ -12987,6 +13374,53 @@ ScalaJS.d.Lorg_scalajs_dom_extensions_AjaxException = new ScalaJS.ClassTypeData(
   O: 1
 });
 ScalaJS.c.Lorg_scalajs_dom_extensions_AjaxException.prototype.$classData = ScalaJS.d.Lorg_scalajs_dom_extensions_AjaxException;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.jl_AssertionError = (function() {
+  ScalaJS.c.jl_Error.call(this)
+});
+ScalaJS.c.jl_AssertionError.prototype = new ScalaJS.h.jl_Error();
+ScalaJS.c.jl_AssertionError.prototype.constructor = ScalaJS.c.jl_AssertionError;
+/** @constructor */
+ScalaJS.h.jl_AssertionError = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.jl_AssertionError.prototype = ScalaJS.c.jl_AssertionError.prototype;
+ScalaJS.c.jl_AssertionError.prototype.init___O = (function(o) {
+  ScalaJS.c.jl_AssertionError.prototype.init___T.call(this, ScalaJS.objectToString(o));
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.jl_AssertionError = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_AssertionError)))
+});
+ScalaJS.as.jl_AssertionError = (function(obj) {
+  if ((ScalaJS.is.jl_AssertionError(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "java.lang.AssertionError")
+  }
+});
+ScalaJS.isArrayOf.jl_AssertionError = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_AssertionError)))
+});
+ScalaJS.asArrayOf.jl_AssertionError = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.jl_AssertionError(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Ljava.lang.AssertionError;", depth)
+  }
+});
+ScalaJS.d.jl_AssertionError = new ScalaJS.ClassTypeData({
+  jl_AssertionError: 0
+}, false, "java.lang.AssertionError", ScalaJS.d.jl_Error, {
+  jl_AssertionError: 1,
+  jl_Error: 1,
+  jl_Throwable: 1,
+  Ljava_io_Serializable: 1,
+  O: 1
+});
+ScalaJS.c.jl_AssertionError.prototype.$classData = ScalaJS.d.jl_AssertionError;
 /*<skip>*/;
 ScalaJS.is.jl_InterruptedException = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_InterruptedException)))
