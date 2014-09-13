@@ -8,7 +8,7 @@ name := "SodexoWatcher"
 
 version := "0.1-SNAPSHOT"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.2"
 
 // Download and link sources for library dependencies
 EclipseKeys.withSource := true
