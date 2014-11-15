@@ -1,5 +1,6 @@
 sodexowatcher
 =============
+**This project was just a first attempt at writing a mobile application. There is no ongoing development on it.**
 
 A HTML5 application to watch Sodexo restaurant occupancy rate.
 
